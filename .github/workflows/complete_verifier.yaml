@@ -1,0 +1,19 @@
+name: complete_verifier tests
+on: [push]
+jobs:
+  default-shell:
+    name: Default shell
+    runs-on: "ubuntu-latest"
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: alpha-beta-crown
+          environment-file: environment.yaml
+      - run: conda info
+      - run: conda list
+      - run: conda config --show
+      - run: main.py
