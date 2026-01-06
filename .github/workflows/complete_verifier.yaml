@@ -16,4 +16,4 @@ jobs:
       - run: conda info
       - run: conda list
       - run: conda config --show
-      - run: main.py
+      - run: python main.py
